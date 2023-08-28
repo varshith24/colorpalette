@@ -23,17 +23,17 @@ const randomColor = () => {
 
 
 function App() {
-  useEffect(() => {
-    const preventContextMenu = (e) => {
-      e.preventDefault();
-    };
+  // useEffect(() => {
+  //   const preventContextMenu = (e) => {
+  //     e.preventDefault();
+  //   };
 
-    document.addEventListener('contextmenu', preventContextMenu);
+  //   document.addEventListener('contextmenu', preventContextMenu);
 
-    return () => {
-      document.removeEventListener('contextmenu', preventContextMenu);
-    };
-  }, []);
+  //   return () => {
+  //     document.removeEventListener('contextmenu', preventContextMenu);
+  //   };
+  // }, []);
   const [light, setLight] = useState(true)
   const [color, setColor] = useState([]);
   const [Refresh, setRefresh] = useState(true)
@@ -41,17 +41,16 @@ function App() {
     const colors = randomColor();
     setColor(colors)
   },[Refresh])
-  
+  // #A95BE4
   return (
     <div className="App" style={{backgroundColor: light?"#e3f2fd": "#000"}}>
       <div className='container'>
         {
-          color.map((item)=>{
+          color.map((item,index)=>{
             return(
               <div className='element' style={{ backgroundColor: light ? '#fff' : '#333333' }}>
               <div className='body-color'  style={{backgroundColor : item}} onClick={()=>{
                 navigator.clipboard.writeText(item)
-                console.log("Copied")
                 toast('🦄 Copied Successfully!', {
                   position: "top-right",
                   autoClose: 1000,
@@ -71,9 +70,13 @@ function App() {
         }
       </div>
       <button className='btn' onClick={()=>{
-        console.log("refreshed")
         setRefresh(!Refresh)
       }}>Refresh colors</button>
+       <button className='toggle-btn'
+        onClick={()=>{
+        setLight(!light)
+      }}
+      >{light?"Dark-":"Light-"}Mode</button>
       <ToastContainer
       position="top-right"
       autoClose={5000}
