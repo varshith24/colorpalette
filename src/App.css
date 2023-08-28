@@ -1,0 +1,60 @@
+.App
+{
+  background-color: #e3f2fd;
+}
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0px 10px 10px;
+  margin: 20px;
+  justify-content: center;
+  /* background-color: #7311c4; */
+}
+.element{
+  width: 190px;
+  height: 235px;
+  justify-content: center;
+  background-color: #fff;
+  margin: 13px;
+  padding: 7px;
+  text-align: center;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(52, 87, 220, 0.08);
+  transition: transform 0.3s ease;
+}
+.body-color{
+  width: 170px;
+  height: 170px;
+  padding: 10px;
+  border-radius: 5px;
+}
+.hex-value{
+  display: block;
+  margin: 12px 0  8px;
+  color: #444;
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+.element:active{
+  transform: scale(0.95);
+}
+.element:hover .body-color{
+  filter: brightness(106%);
+}
+.btn{
+  position: fixed;
+  left: 50%;
+  bottom: 40px;
+  outline: none;
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #fff;
+  background: #8a6cff;
+  border: 2px solid #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 15px 25px rgba(52, 87, 220, 0.2);
+  transform: translateX(-50%);
+}
